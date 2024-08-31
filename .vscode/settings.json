@@ -1,0 +1,18 @@
+{
+    "C_Cpp.dimInactiveRegions": false,
+    "files.associations": {
+        "list": "cpp",
+        "string": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "vector": "cpp",
+        "system_error": "cpp",
+        "typeinfo": "cpp",
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "thread": "cpp",
+        "chrono": "cpp",
+        "random": "cpp",
+        "iosfwd": "cpp"
+    }
+}
