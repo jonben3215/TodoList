@@ -1,6 +1,6 @@
 # TodoList
 ## BackGround:
-created a TODO LIST program in C++ using hashing Methods. This was inspired by JIRA. Users can add task, cahnge the task name, add priority to the task, change task priority, etc. Once the user closes the programing (by pressing 8) the program will log the completetion percentage for that day in a text file. This way users can see productive they were through out the day, the week, or even through out the year. 
+created a TODO LIST program in C++ using hash table. This was inspired by JIRA. Users can add task, cahnge the task name, add priority to the task, change task priority, etc. Once the user closes the programing (by pressing 8) the program will log the completetion percentage for that day in a text file. This way users can see productive they were through out the day, the week, or even through out the year. 
 
 ## How to run:
 1. ensure C++ is installed on local machine (can verify via typing gcc in VSC terminal or CMD)
