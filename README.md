@@ -5,5 +5,5 @@ created a TODO program in C++ using hashing Methods. This was inspired by JIRA. 
 ## How to run:
 1. ensure C++ is installed on local machine (can verify via typing gcc in VSC terminal or CMD)
 2. compile with the following code `g++ -std=c++17 .\hashTask.cpp` or `g++ -std=c++17 .\hashTask.cpp -o <give it a name>`
-3. run `./a` `for g++ -std=c++17 .\hashTask.cpp -o` or `./givename` for `g++ -std=c++17 .\hashTask.cpp -o <give it a name>`
+3. run `./a` `for g++ -std=c++17 .\hashTask.cpp` or `./givename` for `g++ -std=c++17 .\hashTask.cpp -o <give it a name>`
 4. Follow prompt and enjoy
