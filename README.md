@@ -1,9 +1,42 @@
-# TodoList
-## BackGround:
-created a TODO LIST program in C++ using hash table. This was inspired by JIRA. Users can add task, change the task name, add priority to the task, change task priority, etc. Once the user closes the program (by pressing 8) the program will log the completetion percentage for that day in a text file. This way users can see productive they were through out the day, the week, or even through out the year. 
+# TODO List Program
 
-## How to run:
-1. ensure C++ is installed on local machine (can verify via typing gcc in VSC terminal or CMD)
-2. compile with the following code `g++ -std=c++17 .\hashTask.cpp` or `g++ -std=c++17 .\hashTask.cpp -o <give it a name>`
-3. run `./a` `for g++ -std=c++17 .\hashTask.cpp` or `./givename` for `g++ -std=c++17 .\hashTask.cpp -o <give it a name>`
-4. Follow prompt and enjoy
+## Background
+I created a TODO LIST program in C++ using a hash table, inspired by JIRA. The program allows users to:
+
+- Add tasks
+- Change task names
+- Add priority to tasks
+- Change task priority
+
+When the user closes the program (by pressing 8), it logs the completion percentage for that day in a text file. This allows users to track how productive they were throughout the day, week, or even the year.
+
+## How to Run
+1. **Ensure C++ is Installed**  
+   Verify C++ is installed on your local machine by typing `gcc` in the Visual Studio Code terminal or Command Prompt (CMD).
+
+2. **Compile the Program**  
+   Use one of the following commands:
+
+   - To compile without specifying an output name:
+     ```bash
+     g++ -std=c++17 .\hashTask.cpp
+     ```
+
+   - To compile and specify an output name:
+     ```bash
+     g++ -std=c++17 .\hashTask.cpp -o <give it a name>
+     ```
+
+3. **Run the Program**  
+   - For the first compile method, run:
+     ```bash
+     ./a
+     ```
+
+   - For the second compile method (where you specify a name), run:
+     ```bash
+     ./<givename>
+     ```
+
+4. **Follow Prompts and Enjoy**  
+   Follow the on-screen prompts to use the TODO List program.
