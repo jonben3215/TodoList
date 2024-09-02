@@ -46,8 +46,32 @@ public:
 
         return sum % tableSize;
     }
+    string toLower(string name)
+    {
+        string lowerName = "";
+        for (int i = 0; i < name.length(); i++)
+            lowerName += tolower(name[i]);
 
-    void insert(const Task &t)
+        return lowerName;
+    }
+    
+    Task*search(string name)
+    {
+        string looking = toLower(name);
+        for(int i =0; i < tableSize; i++)
+        {
+            for(auto &it : table[i])
+            {
+                string inside = toLower(it.name);
+
+                if(inside  == looking)
+                    return &it;
+            }
+        }
+        return NULL;
+    }
+
+    void insert(const Task &t) 
     {
         int index = hashFunction(t.name);
         for (const auto &task : table[index])
@@ -63,53 +87,31 @@ public:
         numberOfItems++;
     }
 
+    //Re-factored
     void UpdateCompleted(string name, bool completed = true)
     {
-        int index = hashFunction(name);
-        auto &items = table[index];
-        for (auto it = items.begin(); it != items.end(); ++it)
-        {
-            if (it->name == name)
-            {
-                it->completed = completed;
-                 cout << "\033[32m TASK: " << it->name << " COMPLETED SUCCESSFULLY.\033[0m" << endl;
-                return;
-            }
+        Task *foundTask = search(name); // Use search to find the task
+        if (foundTask == NULL) {
+            cout << "\u26D4 \033[31mTASK NOT FOUND.\033[0m" << endl;
+            return;
+        }   
+        else{
+            foundTask->completed = completed;
+            cout << "\033[32mTASK: " << foundTask->name << " COMPLETED SUCCESSFULLY.\033[0m" << endl;
         }
-            cout << "\u26D4" << " \033[31mTASK NOT FOUND.\033[0m" << endl;
     }
 
     void updatePriorty(string name, int priority)
     {
-        bool found = false;
-        if (numberOfItems == 0)
-            cout << "\u26D4 \033[31m TODO LIST IS EMPTY \033[0m" << endl;
-
-        for (int i = 0; i < tableSize; i++)
-        {
-            for (auto &t : table[i])
-            {
-                if (t.name == name)
-                {
-                    // Validate and update the priority
-                    if (priority >= 1 && priority <= 3)
-                        t.priority = priority; // Set priority correctly
-                    else
-                    {
-                        cout << "\033[31mInvalid priority value.\033[0m" << endl;
-                        return;
-                    }
-
-                    // Print the task details after updating
-                    cout << "\033[32mSUCCESSFUL PRIORITY CHANGE\033[0m" << endl;
-                    found = true;
-                    break;
-                }
-            }
-        }
-
-        if (!found)
-            cout << "\u26D4" << "\033[31mTASK NOT FOUND.\033[0m" << endl;
+       Task * foundTask = search(name);
+       if(foundTask == NULL)
+       {
+            cout << "\u26D4 \033[31mTASK NOT FOUND.\033[0m" << endl;
+            return;
+       }
+       
+       foundTask -> priority = priority;
+       cout << "\033[32mTASK: " << foundTask->name << " PRIORITY CHANGED TO " << foundTask -> priority << "\033[0m" << endl;
     }
 
     void remove(const string &name)
@@ -124,7 +126,8 @@ public:
                 items.erase(it);
                 found = true;
                 numberOfItems--;
-                return;
+                cout << "\033[31mTASK" << it->name << " REMOVED SUCCESSFULLY!\033[0m" <<endl;
+                return; 
             }
         }
 
@@ -133,24 +136,14 @@ public:
     }
     void updateTaskName(string taskName, string changeName)
     {
-        if (numberOfItems == 0)
-            cout << "\u26D4 \033[31m TODO LIST IS EMPTY \033[0m" << endl;
-
-        for (int i = 0; i < tableSize; i++)
+        Task * foundTask = search(taskName);
+        if(foundTask == NULL)
         {
-            
-            for (auto &t : table[i])
-            {
-                if (t.name == taskName)
-                {
-                    t.name = changeName;
-                    cout << "\033[32mSUCCESSFUL NAME CHANGE\033[0m" << endl;
-                    return;
-                }
-            }
+            cout << "\u26D4 \033[31mTASK NOT FOUND.\033[0m" << endl;
+            return;
         }
-
-    cout << "\u26D4 \033[31m TASK(S) WITH NAME " << taskName << " NOT FOUND\033[0m" << endl;
+        foundTask -> name = changeName;
+        cout << "\033[32mTASK: " << taskName << " HAS BEEN CHANGED TO " << changeName << "\033[0m" << endl;
     }
 
     void print()
@@ -163,7 +156,7 @@ public:
                 {
                     cout << "\033[31m" << t.name << " (PR:" << t.priority << ")" << "\033[0m" << endl;
                 }
-                else if(t.name != "" && t.completed == true)
+                else if (t.name != "" && t.completed == true)
                 {
                     cout << "\033[32m" << t.name << " (PR:" << t.priority << ")" << "\033[0m" << endl;
                 }
@@ -177,10 +170,10 @@ public:
             cout << "\u26D4 \033[31m TODO LIST IS EMPTY \033[0m" << endl;
 
         bool found = false;
-        cout << "\033[32mLIST OF TASK WITH LEVEL " <<  priority  << " PRIORITY:\033[0m" << endl;
+        cout << "\033[32mLIST OF TASK WITH LEVEL " << priority << " PRIORITY:\033[0m" << endl;
         for (int i = 0; i < tableSize; i++)
         {
-            
+
             for (const auto &t : table[i])
             {
                 found = false;

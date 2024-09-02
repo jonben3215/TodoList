@@ -51,11 +51,17 @@ int main()
 
         switch (choice) {
         case 1:
-            cout << "Enter the task name: ";
-            getline(cin, taskName);
-            PriorityMenu();
-            cin >> taskPriority;
-            todo.insert(Task(taskName, taskPriority));
+            while (true) {
+                cout << "Enter the task name (or type 'exit' to stop adding tasks): ";
+                getline(cin, taskName);
+                if (taskName == "exit") {
+                    break; // Exit the loop if the user types 'exit'
+                }
+                PriorityMenu();
+                cin >> taskPriority;
+                cin.ignore(); // Clear newline character left by cin
+                todo.insert(Task(taskName,false, taskPriority));
+            }
             break;
         case 2:
             cout << "Enter the task name to remove: ";
