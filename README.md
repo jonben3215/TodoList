@@ -43,7 +43,8 @@ Must have CMake (3.10) installed on machine in order to run (optional).
       ./todo
       ```
    Normal Compile:
-
+   - Exit to Main Directory
+   
    - To compile without specifying an output name:
      ```bash
      g++ -std=c++17 .\hashTask.cpp
