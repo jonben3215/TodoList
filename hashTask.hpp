@@ -13,7 +13,7 @@
 #include <unistd.h>  // Include the unistd.h header for the sleep function
 using namespace std; // Use the std namespace
 
-#define HT 1
+#define HT 40
 
 struct Task
 {

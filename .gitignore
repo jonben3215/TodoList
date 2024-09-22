@@ -3,4 +3,4 @@ TodoListCompletion.txt
 *.exe
 
 build/*
-!build.gitignore
+!build/.gitkeep 
