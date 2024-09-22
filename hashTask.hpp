@@ -13,7 +13,7 @@
 #include <unistd.h>  // Include the unistd.h header for the sleep function
 using namespace std; // Use the std namespace
 
-#define HT 40
+#define HT 1
 
 struct Task
 {
@@ -36,6 +36,17 @@ public:
     HashTask() : tableSize(HT), numberOfItems(0), numcompleted(0) // Initialize members
     {
         table.resize(tableSize);
+    }
+
+    vector<list<Task>> &doubleSpace(vector<list<Task>>& table)
+    {
+        if(tableSize == HT)
+        {   
+            tableSize *= 2;
+            table.resize(tableSize);
+        }
+        
+        return table;
     }
 
     int hashFunction(const string &name) const
@@ -74,6 +85,13 @@ public:
     void insert(const Task &t) 
     {
         int index = hashFunction(t.name);
+        if(tableSize == HT)
+        {
+            cout << "Resizing..." << endl;
+            doubleSpace(table);
+            sleep(5);
+            cout << "SUCCESSFULLY RESIZED TODO LIST TO: " << tableSize << endl;
+        }
         for (const auto &task : table[index])
         {
             if (task.name == t.name)
