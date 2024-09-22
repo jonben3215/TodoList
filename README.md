@@ -22,13 +22,13 @@ Must have CMake (3.10) installed on machine in order to run (optional).
     ```bash
       cd build
     ```
-    When Using MinGW:
+    - When Using MinGW:
       ``` bash
         1. cmake -G "MinGW Makefiles" ..
         2. mingw32-make 
         3. ./todo
       ```
-    When Using GCC/Clang:
+    - When Using GCC/Clang:
     ``` bash
       1. cmake ..
       2. make
