@@ -24,7 +24,7 @@ Must have CMake (3.10) installed on machine in order to run (optional).
       ```
     - When Using MinGW:
       ``` bash
-      cmake -G "MinGW Makefiles" ..
+      cmake -G "MinGW Makefiles"
       ```
       ``` bash
       mingw32-make 
@@ -34,7 +34,7 @@ Must have CMake (3.10) installed on machine in order to run (optional).
       ``` 
     - When Using GCC/Clang:
       ``` bash
-      cmake ..
+      cmake
       ```
       ``` bash
       make

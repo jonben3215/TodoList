@@ -1,6 +1,3 @@
 TodoListCompletion.txt
 
 *.exe
-
-build/*
-!build/.gitkeep 
