@@ -25,13 +25,21 @@ Must have CMake (3.10) installed on machine in order to run (optional).
     - When Using MinGW:
     ``` bash
     cmake -G "MinGW Makefiles" ..
+    ```
+    ``` bash
     mingw32-make 
-    ./todo
-      ```
+    ```
+    ``` bash
+    ./todo 
+    ``` 
     - When Using GCC/Clang:
     ``` bash
     cmake ..
+    ```
+    ``` bash
     make
+    ```
+    ``` bash
     ./todo
     ```
    Normal Compile:
