@@ -19,14 +19,21 @@ Must have CMake (3.10) installed on machine in order to run (optional).
 
 2. **Compile the Program**  
   CMake compile:
-  ```bash
+    ```bash
       cd build
-  ```
-  - WHen using MinGW:
-    ``` bash
-
     ```
-
+    When Using MinGW:
+      ``` bash
+        1. cmake -G "MinGW Makefiles" ..
+        2. mingw32-make 
+        3. ./todo
+      ```
+    When Using GCC/Clang:
+    ``` bash
+      1. cmake ..
+      2. make
+      3. ./todo
+    ```
    Normal Compile:
 
    - To compile without specifying an output name:
