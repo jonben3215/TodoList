@@ -24,9 +24,9 @@ Must have CMake (3.10) installed on machine in order to run (optional).
     ```
     - When Using MinGW:
       ``` bash
-        1. cmake -G "MinGW Makefiles" ..
-        2. mingw32-make 
-        3. ./todo
+      1. cmake -G "MinGW Makefiles" ..
+      2. mingw32-make 
+      3. ./todo
       ```
     - When Using GCC/Clang:
     ``` bash
