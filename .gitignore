@@ -1,3 +1,5 @@
-*.txt
+TodoListCompletion.txt
 *.exe
-build
+
+/build/*
+!/build/.gitignore
